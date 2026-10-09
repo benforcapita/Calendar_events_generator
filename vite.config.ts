@@ -1,35 +1,23 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { VitePWA } from 'vite-plugin-pwa';
-
-// https://vitejs.dev/config/
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 export default defineConfig({
+  base: "./",
   plugins: [
     react(),
-    VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['icon-192.png', 'icon-512.png'],
-      manifest: {
-        name: 'Calendar Event Creator',
-        short_name: 'Calendar',
-        description: 'Create calendar events from natural language',
-        theme_color: '#3b82f6',
-        icons: [
-          {
-            src: 'icon-192.png',
-            sizes: '192x192',
-            type: 'image/png'
+    {
+      name: "production-privacy-policy",
+      apply: "build",
+      transformIndexHtml: () => [
+        {
+          tag: "meta",
+          attrs: {
+            "http-equiv": "Content-Security-Policy",
+            content:
+              "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'",
           },
-          {
-            src: 'icon-512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
-    })
+          injectTo: "head-prepend",
+        },
+      ],
+    },
   ],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
 });

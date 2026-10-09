@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+.npm-cache
+playwright-report
+test-results
+*.tsbuildinfo
