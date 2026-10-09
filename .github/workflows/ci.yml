@@ -6,7 +6,10 @@ permissions:
   contents: read
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    env:
+      # Runner-installed Chrome has an AppArmor profile; sandboxing stays enabled.
+      PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH: /opt/google/chrome/chrome
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
@@ -15,8 +18,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm audit --audit-level=high
       - run: npm run check
-      - run: npx playwright install --with-deps chromium
+      - run: test -x "$PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH" && "$PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH" --version
       - run: npm run test:browser
       - uses: actions/upload-artifact@v4
         if: always()

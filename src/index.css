@@ -113,13 +113,13 @@ button:hover:not(:disabled) {
 }
 .brand-light {
   font-weight: 400;
-  color: #73717b;
+  color: #5f5e66;
 }
 .private-badge {
   display: flex;
   align-items: center;
   gap: 7px;
-  color: #527466;
+  color: #476559;
   background: #e8eee7;
   border: 1px solid #d9e4d9;
   border-radius: 24px;
@@ -139,13 +139,13 @@ button:hover:not(:disabled) {
   font-size: 10px;
   letter-spacing: 1.5px;
   font-weight: 750;
-  color: #787582;
+  color: #605e68;
 }
 .hero .eyebrow {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #6a5e8a;
+  color: #645882;
   margin-bottom: 19px;
 }
 .tiny-line {
@@ -161,11 +161,11 @@ h1 {
   letter-spacing: -1.9px;
 }
 .accent {
-  color: #816ca7;
+  color: #675686;
 }
 .hero-description {
   font-size: 14px;
-  color: #74737b;
+  color: #5f5e65;
   max-width: 490px;
   line-height: 1.8;
   margin: 19px 0 14px;
@@ -202,25 +202,25 @@ h1 {
   letter-spacing: 1.5px;
   border-bottom: 1px dashed #c9bfd8;
   padding-bottom: 12px;
-  color: #7e7095;
+  color: #655a77;
 }
 .paper-date > span {
   font-size: 62px;
   line-height: 1.25;
   font-weight: 300;
-  color: #7b669f;
+  color: #675686;
 }
 .paper-date p {
   font-family: Georgia, serif;
   font-style: italic;
   font-size: 18px;
-  color: #6e5b8f;
+  color: #685688;
 }
 .hero-caption {
   display: block;
   margin-top: 27px;
   font-size: 10px;
-  color: #8f8a94;
+  color: #615e65;
   letter-spacing: 0.3px;
 }
 .workspace-toolbar {
@@ -237,7 +237,7 @@ h1 {
   align-items: center;
   font-size: 11px;
   font-weight: 600;
-  color: #62666a;
+  color: #5b5f63;
 }
 .status-dot {
   width: 6px;
@@ -248,7 +248,7 @@ h1 {
 .toolbar-note {
   font-size: 10px;
   font-weight: 400;
-  color: #8a888f;
+  color: #5f5e63;
   padding-left: 11px;
   margin-left: 5px;
   border-left: 1px solid #d8d7d7;
@@ -280,7 +280,7 @@ h1 {
 .button.quiet {
   background: transparent;
   border-color: transparent;
-  color: #77717f;
+  color: #625d68;
 }
 .button.small {
   padding: 8px 13px;
@@ -314,7 +314,7 @@ h1 {
 }
 .section-heading > svg {
   margin-left: auto;
-  color: #b9b1c9;
+  color: #605c69;
 }
 .section-heading h2 {
   font-size: 20px;
@@ -326,7 +326,7 @@ h1 {
 .step {
   border: 1px solid #e5e0ec;
   background: #f4f1f8;
-  color: #8d80a4;
+  color: #645b74;
   width: 32px;
   height: 32px;
   display: grid;
@@ -346,7 +346,7 @@ h1 {
 .count {
   font-size: 11px;
   background: #e9e7ee;
-  color: #817a90;
+  color: #615b6c;
   display: inline-block;
   padding: 2px 7px;
   border-radius: 20px;
@@ -388,7 +388,7 @@ textarea {
 }
 input::placeholder,
 textarea::placeholder {
-  color: #aba6b3;
+  color: #605d64;
 }
 input[type="datetime-local"],
 input[type="date"] {
@@ -404,7 +404,7 @@ input[type="date"] {
 }
 .kind-picker > span {
   font-size: 10px;
-  color: #9a93a2;
+  color: #615d66;
 }
 .checkbox {
   display: flex;
@@ -412,7 +412,7 @@ input[type="date"] {
   gap: 7px;
   font-size: 11px;
   font-weight: 600;
-  color: #655e70;
+  color: #635c6e;
 }
 .checkbox input {
   accent-color: #6c5498;
@@ -427,12 +427,12 @@ input[type="date"] {
 }
 .optional {
   font-weight: 400;
-  color: #a29ba9;
+  color: #615d65;
   display: contents;
 }
 .field-help {
   font-size: 10px;
-  color: #8a8392;
+  color: #625d68;
   line-height: 1.65;
   margin-top: 7px;
 }
@@ -441,7 +441,7 @@ input[type="date"] {
 }
 .dst-options summary {
   font-size: 10px;
-  color: #847794;
+  color: #645a70;
   cursor: pointer;
   min-height: 26px;
   display: list-item;
@@ -480,7 +480,7 @@ input[type="date"] {
   flex-wrap: wrap;
   background: #edeaf3;
   border: 1px solid #e0d9ec;
-  color: #6b587e;
+  color: #6a577d;
   padding: 10px 16px;
   margin-bottom: 16px;
   border-radius: 8px;
@@ -501,7 +501,7 @@ input[type="date"] {
   align-items: center;
   gap: 9px;
   padding: 15px 19px;
-  color: #6e607f;
+  color: #665976;
   font-size: 12px;
   font-weight: 650;
   cursor: pointer;
@@ -509,7 +509,7 @@ input[type="date"] {
 .structured > summary::after {
   content: "+";
   margin-left: auto;
-  color: #9c8cab;
+  color: #655b6f;
   font-size: 18px;
   line-height: 1;
 }
@@ -519,14 +519,14 @@ input[type="date"] {
 .structured > summary span {
   font-weight: 400;
   font-size: 10px;
-  color: #9a8fa5;
+  color: #635c6a;
   margin-left: 4px;
 }
 .structured-body {
   padding: 0 19px 20px;
 }
 .structured-body > p {
-  color: #82768e;
+  color: #645b6d;
   font-size: 11px;
   line-height: 1.7;
 }
@@ -551,7 +551,7 @@ input[type="date"] {
   border-radius: 8px;
   padding-left: 12px;
   margin-bottom: 18px;
-  color: #a59dad;
+  color: #615d66;
 }
 .search input {
   border: 0;
@@ -567,7 +567,7 @@ input[type="date"] {
   margin: 0 auto 20px;
   background: #f2eef7;
   border: 1px solid #e7e0f0;
-  color: #a99bbc;
+  color: #645b6f;
   width: 66px;
   height: 66px;
   display: grid;
@@ -583,7 +583,7 @@ input[type="date"] {
 .empty p {
   font-size: 12px;
   line-height: 1.8;
-  color: #95909e;
+  color: #5f5c65;
   max-width: 280px;
   margin: 12px auto 0;
 }
@@ -595,14 +595,14 @@ input[type="date"] {
 }
 .empty > span {
   font-size: 10px;
-  color: #ada4b7;
+  color: #635d68;
 }
 .export-note {
   display: flex;
   gap: 9px;
   align-items: flex-start;
   margin: 20px 15px;
-  color: #918b99;
+  color: #615d67;
   font-size: 10px;
   line-height: 1.8;
 }
@@ -632,12 +632,12 @@ input[type="date"] {
 .event-kind {
   font-size: 8px;
   letter-spacing: 1px;
-  color: #88729f;
+  color: #69587a;
   font-weight: 700;
 }
 .revision {
   font-size: 9px;
-  color: #a59cac;
+  color: #615c65;
 }
 .event-card h3 {
   font-size: 19px;
@@ -651,7 +651,7 @@ input[type="date"] {
   display: flex;
   gap: 8px;
   font-size: 11px;
-  color: #7a7086;
+  color: #645c6e;
   margin-top: 12px;
   align-items: flex-start;
   overflow-wrap: anywhere;
@@ -660,19 +660,19 @@ input[type="date"] {
 .event-location svg {
   flex-shrink: 0;
   margin-top: 1px;
-  color: #a797b8;
+  color: #645b6e;
 }
 .event-location span {
   min-width: 0;
 }
 .zone {
   font-size: 9px;
-  color: #ab9db5;
+  color: #635b69;
   margin: 5px 0 0 24px;
 }
 .event-notes {
   font-size: 12px;
-  color: #82768e;
+  color: #645b6d;
   background: #f8f6fa;
   padding: 10px 12px;
   border-radius: 7px;
@@ -697,13 +697,13 @@ input[type="date"] {
   gap: 5px;
   border: 0;
   background: none;
-  color: #8d7c9e;
+  color: #665972;
   font-size: 10px;
   min-height: 38px;
   padding: 5px 0;
 }
 .icon-text.danger {
-  color: #aa7f85;
+  color: #74565a;
   margin-left: auto;
 }
 .import-review {
@@ -716,7 +716,7 @@ input[type="date"] {
 .import-review p,
 .import-review li {
   font-size: 12px;
-  color: #82768e;
+  color: #645b6d;
   margin-top: 8px;
   overflow-wrap: anywhere;
 }
@@ -728,25 +728,25 @@ footer {
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  color: #959099;
+  color: #615e63;
   font-size: 10px;
 }
 .footer-brand {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #81778e;
+  color: #635c6d;
   font-weight: 650;
 }
 .footer-brand svg {
-  color: #a79bb6;
+  color: #635b6b;
 }
 footer > p {
   margin-right: auto;
 }
 footer details summary {
   cursor: pointer;
-  color: #83718f;
+  color: #675971;
   min-height: 32px;
   align-content: center;
 }
@@ -966,5 +966,28 @@ input.visually-hidden {
   * {
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Intrinsic form-control widths must never widen a small-screen grid track. */
+.workspace > *,
+.field-pair > * {
+  min-width: 0;
+}
+@media (max-width: 700px) {
+  .workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .field-pair {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+@media (max-width: 420px) {
+  .field-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  input[type="datetime-local"],
+  input[type="date"] {
+    font-size: 16px;
   }
 }

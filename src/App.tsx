@@ -260,7 +260,7 @@ export function App() {
               {loading ? "Reading file…" : "Import ICS"}
             </button>
             <input
-              className="visually-hidden"
+              hidden
               ref={importInput}
               type="file"
               accept=".ics,text/calendar"

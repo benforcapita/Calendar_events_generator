@@ -71,7 +71,7 @@ test('all-day boundaries and keyboard-only save work at this viewport', async ({
   const dl = await downloading; const path = info.outputPath('all-day.ics'); await dl.saveAs(path);
   const data = await readFile(path, 'utf8');
   expect(data).toContain('DTEND;VALUE=DATE:20270102');
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.visualViewport!.width + 1)).toBe(true);
 });
 test('rejects impossible dates, DST gaps and end ordering without saving', async ({ page }) => {
   await page.getByRole('button', { name: 'Try an example' }).click();
@@ -144,5 +144,15 @@ test('has no serious accessibility violations in empty and saved states', async 
     if (saved) { await page.getByRole('button', { name: 'Try an example' }).click(); await page.getByRole('button', { name: 'Save event', exact: true }).click(); }
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     expect(results.violations).toEqual([]);
+  }
+});
+
+test('long notes and native inputs fit narrow screens', async ({ page }) => {
+  await page.getByRole('button', { name: 'Try an example' }).click();
+  await page.getByLabel('Notes optional').fill('ATTENDEE:mailto:long-unbroken-address@example.test');
+  await page.getByRole('button', { name: 'Save event', exact: true }).click();
+  for (const width of [320, 360, 390, 768]) {
+    await page.setViewportSize({ width, height: 844 });
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
   }
 });
