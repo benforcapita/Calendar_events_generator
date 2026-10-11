@@ -23,7 +23,7 @@ jobs:
       - run: npm run validate:ics
       - run: test -x "$PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH" && "$PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH" --version
       - run: npm run test:browser
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: calendar-test-evidence
