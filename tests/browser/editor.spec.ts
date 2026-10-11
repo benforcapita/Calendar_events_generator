@@ -2,7 +2,23 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 const storageKey = 'ces_events_v1';
-test.beforeEach(async ({ page }) => { await page.goto('/'); });
+const cspViolations: string[] = [];
+test.beforeEach(async ({ page }) => {
+  cspViolations.length = 0;
+  page.on('console', (msg) => {
+    const text = msg.text();
+    if (text.startsWith('CSP violation:')) cspViolations.push(text);
+  });
+  await page.addInitScript(() => {
+    document.addEventListener('securitypolicyviolation', (event) => {
+      console.error(`CSP violation: ${event.effectiveDirective} ${event.blockedURI || 'inline'}`);
+    });
+  });
+  await page.goto('/');
+});
+test.afterEach(() => {
+  expect(cspViolations).toEqual([]);
+});
 test('complete create/edit/search/persist/download/import/delete journey', async ({ page }, info) => {
   const foreignRequests: string[] = [], errors: string[] = [];
   page.on('request', req => { if (!req.url().startsWith('http://127.0.0.1:4193')) foreignRequests.push(req.url()); });
