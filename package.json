@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:browser": "playwright test",
     "validate:ics": "node scripts/validate-ics.mjs",
-    "check": "npm run lint && npm test && npm run build"
+    "check:headers": "node scripts/check-security-headers.mjs",
+    "check": "npm run lint && npm test && npm run build && npm run check:headers"
   },
   "dependencies": {
     "@js-temporal/polyfill": "0.5.1",
