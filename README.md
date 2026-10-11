@@ -1,6 +1,18 @@
 # Calendar / studio
 
-A local-first browser tool for turning explicit event details into editable events and portable `.ics` files.
+A local-first browser tool for turning explicit event details into editable events and a portable [iCalendar](https://www.rfc-editor.org/rfc/rfc5545) file. Events stay in the browser until you download them. The app does not connect a calendar account, call an AI provider, or send invitations.
+
+## Screenshots
+
+These are the production build, captured locally with Playwright. The first screen is the empty studio. The next two show a timed design review and an all-day offsite saved on the device.
+
+![Calendar studio on a desktop, with the editor and an empty event list](docs/screenshots/desktop-home.png)
+
+![Calendar studio on a desktop, with a timed design review and an all-day offsite](docs/screenshots/desktop-events.png)
+
+![Calendar studio on a phone, scrolled to the saved design review and offsite](docs/screenshots/mobile-events.png)
+
+Regenerate them from the production build with `node scripts/capture-screenshots.mjs`. That command needs the system Chrome path in `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` when Playwright’s downloaded browser is not installed.
 
 ## What works
 
@@ -28,7 +40,9 @@ npm run build
 npm run preview
 ```
 
-Serve `dist/` over HTTP(S). Relative asset paths also support a private subdirectory preview. No hosting account or backend is required. This change does not deploy anything or connect to a calendar account.
+Serve `dist/` over HTTP(S). Relative asset paths also support a private subdirectory preview. No hosting account or backend is required. `vercel.json` only declares response headers for a future static host; nothing in this repository deploys the app or connects a calendar account.
+
+The header policy matches the production meta Content Security Policy (`connect-src 'none'`, same-origin scripts and images, no objects, no embeds, no form posts) and adds framing, referrer, transport, and permissions headers that a meta tag cannot set. `style-src` allows `'unsafe-inline'` because the built page may include inline style attributes.
 
 ## Explicit text shortcut
 
@@ -69,11 +83,16 @@ Timezone resolution uses [Temporal](https://tc39.es/proposal-temporal/docs/zoned
 
 ```sh
 npm run check          # strict lint, unit/component tests, TypeScript, production build
+npm run validate:ics   # committed docs/sample-calendar.ics matches the generator and parses
 npx playwright install chromium
 npm run test:browser   # desktop + mobile Chromium, one worker, sandbox enabled
 npm audit
 ```
 
+`docs/sample-calendar.ics` is generated from two synthetic events (a New York design review and an all-day offsite). `npm run validate:ics` checks CRLF endings, the 75-octet line limit, component boundaries, `VERSION:2.0`, and a round trip through both [ICAL.js](https://kewisch.github.io/ical.js/api/) and this app’s importer. Opening that file in Google Calendar is a separate manual check; automated validation does not substitute for it.
+
+GitHub Actions runs lint, unit tests, the production build, the ICS file check, both browser projects, and a [gitleaks](https://github.com/gitleaks/gitleaks) history scan on each branch commit and pull request.
+
 For an existing trusted Chromium installation set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to its path. The test configuration keeps Chromium sandboxing on. Browser tests run against the production build on loopback port 4193 and use only synthetic events. No real provider calls, credentials, calendar writes, or invitations are involved.
 
-Tests exercise invalid/leap dates, DST gaps/folds and overlap edits, non-hour timezones, all-day boundaries, property injection/escaping/Unicode line folding, independent ICAL parsing, round trips, malformed imports, large backups, duplicate imports, persistence failures/corruption, repeated edits, delete/undo, cancelled changes, real downloads, responsive width, and keyboard navigation. GitHub Actions repeats checks and both browser projects on each branch commit and PR.
+Tests exercise invalid/leap dates, DST gaps/folds and overlap edits, non-hour timezones, all-day boundaries, property injection/escaping/Unicode line folding, independent ICAL parsing, round trips, malformed imports, large backups, duplicate imports, persistence failures/corruption, repeated edits, delete/undo, cancelled changes, real downloads, responsive width, and keyboard navigation.
