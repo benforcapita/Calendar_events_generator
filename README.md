@@ -102,3 +102,7 @@ GitHub Actions runs lint, unit tests, the production build, the ICS file check, 
 For an existing trusted Chromium installation set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to its path. The test configuration keeps Chromium sandboxing on. Browser tests run against the production build on loopback port 4193 and use only synthetic events. No real provider calls, credentials, calendar writes, or invitations are involved.
 
 Tests exercise invalid/leap dates, DST gaps/folds and overlap edits, non-hour timezones, all-day boundaries, property injection/escaping/Unicode line folding, independent ICAL parsing, round trips, malformed imports, large backups, duplicate imports, persistence failures/corruption, repeated edits, delete/undo, cancelled changes, real downloads, responsive width, and keyboard navigation.
+
+## License
+
+[MIT](LICENSE). Copyright (c) 2026 Ben Blum.
